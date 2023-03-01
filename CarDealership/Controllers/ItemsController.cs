@@ -7,7 +7,7 @@ namespace CarDealership.Controllers
   public class ItemsController : Controller
   {
 
-    [HttpGet("/")]
+    [HttpGet("/items")] // routing updated from home '/'
     public ActionResult Index()
     {
 

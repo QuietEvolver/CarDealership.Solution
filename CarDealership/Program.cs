@@ -15,7 +15,8 @@ namespace CarDealership
 
     //   app.UseDeveloperExceptionPage();
       app.UseHttpsRedirection();
-
+      // use static files for pictures
+      app.UseStaticFiles();
       app.UseRouting();
 
       app.MapControllerRoute(

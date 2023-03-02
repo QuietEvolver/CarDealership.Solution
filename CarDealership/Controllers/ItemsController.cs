@@ -6,15 +6,7 @@ namespace CarDealership.Controllers
 {
   public class ItemsController : Controller
   {
-
-    [HttpGet("/items")] // routing updated from home '/'
-    public ActionResult Index()
-    {
-
-      List<Item> allItems = Item.GetAll();
-      return View(allItems);
-    }
-
+    // all routes not are Parent:Category/chilren Items 
     [HttpGet("/items/new")]
     public ActionResult New()
     {

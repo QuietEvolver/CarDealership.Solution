@@ -8,12 +8,19 @@ namespace CarDealership.Controllers
 {
   public class CategoriesController : Controller
   {
-  // create an Index() route to display all Categorys
-  [HttpGet("/categories")]
-  public ActionResult Index()
-  {
-    List<Category> allCategories = Category.GetAll();
-    return View(allCategories);
-  }
+    // create an Index() route to display all Categorys
+    [HttpGet("/categories")]
+    public ActionResult Index()
+    {
+      List<Category> allCategories = Category.GetAll();
+      return View(allCategories);
+    }
+
+    // nsure users can create new Categorys with a form
+    [HttpGet("/categories/new")]
+    public ActionResult New()
+    {
+      return View();
+    }
   }
 }

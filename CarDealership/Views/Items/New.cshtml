@@ -12,6 +12,7 @@
   <body>
     <h1>Add new item to @Model.Name</h1>
     <form action="/categories/@Model.Id/items" method="post">
+    @* quietly  pass the Category ID alongside the user's form input to the Create() *@
       <input id="categoryid" name="categoryId" type="hidden" value="@Model.Id">
       <label for="itemDescription">Item Description; Year, Make and Model</label>
       <input id="itemDescription" name="itemDescription" type="text">

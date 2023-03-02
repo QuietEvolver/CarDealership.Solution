@@ -16,11 +16,30 @@ namespace CarDealership.Controllers
       return View(allCategories);
     }
 
-    // nsure users can create new Categorys with a form
+    // ensure users can create new Categorys with a form
     [HttpGet("/categories/new")]
     public ActionResult New()
     {
       return View();
+    }
+
+    // create&process submissions from this form
+    [HttpPost("/categories")]
+    public ActionResult Create( string categoryName)
+    {
+      Category newCategory = new Category(categoryName);
+      return RedirectToAction("Index");
+    }
+// so a user can click an individual Category from the list of all categories and navigate to a detail page displaying its information, including a list of the Items associated with it. 
+    [HttpGet("/categories/{id}")]
+    public ActionResult Show(int id)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Category selectedCategory = Category.Find(id);
+      List<Item> categoryItems = selectedCategory.Items;
+      model.Add("category", selectedCategory);
+      model.Add("items", categoryItems);
+      return View(model);
     }
   }
 }

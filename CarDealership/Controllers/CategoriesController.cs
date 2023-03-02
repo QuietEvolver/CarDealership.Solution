@@ -41,5 +41,13 @@ namespace CarDealership.Controllers
       model.Add("items", categoryItems);
       return View(model);
     }
+
+    // to add functionality to clear the items from a Category, we'll need to create a new Category method that handles clearing out the Category.Items property
+    [HttpPost("category{id}/items/delete")]
+    public ActionResult DeleteAll()
+    {
+      Item.ClearAll();
+      return View();
+    }
   }
 }

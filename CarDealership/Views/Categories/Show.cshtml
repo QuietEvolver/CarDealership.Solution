@@ -23,6 +23,12 @@
 
     <p><a href = '/categories/@Model["category"].Id/items/new'>Add New Item</a></p>
     <p><a href="categories">Return to category list</a></p>
+
+  @foreach (Item item in @Model["items"])
+  {
+    <li><a href='/categories/@Model["category"],Id/items/@item.Id'>@item.Description</a></li>
+  }
+
     <p><a href="/">Return to main page/home</a></p>
   </body>
 </html>

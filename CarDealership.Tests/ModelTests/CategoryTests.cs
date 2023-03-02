@@ -86,5 +86,22 @@ namespace CarDealership.Tests
       //Assert
       Assert.AreEqual(newCategory2, result);
     }
+
+    //make sure we can add an Item object into the Items property of a Category object.
+    [TestMethod]
+    public void AddItem_AssociatesItemWithCategory_ItemList()
+    {
+      //Arrange
+      string description = "Walk dog";
+      Item newItem = new Item(description);
+      List<Item> newList = new List<Item> { newItem };
+      string name = "Work";
+      Category newCategory = new Category (name);
+      newCategory.AddItem(newItem); 
+      //Act
+      List<Item> result = newCategory.Items;
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }

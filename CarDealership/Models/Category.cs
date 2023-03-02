@@ -31,5 +31,10 @@ namespace CarDealership.Models
     {
       return _instances[searchId-1];
     }
+// saving objects of one type within objects of another type
+    public void AddItem(Item item)
+    {
+      Items.Add(item);
+    }
   }
 }

@@ -6,11 +6,12 @@ namespace CarDealership.Controllers
 {
   public class ItemsController : Controller
   {
-    // all routes not are Parent:Category/chilren Items 
-    [HttpGet("/items/new")]
-    public ActionResult New()
+    // all routes now are Parent:Category/chilren Items 
+    [HttpGet("/categories/{categoryId}/items/new")]
+    public ActionResult New(int categoryId)
     {
-      return View();
+      Category category = Category.Find(categoryId);
+      return View(category);
     }
 
     [HttpPost("/items")]
